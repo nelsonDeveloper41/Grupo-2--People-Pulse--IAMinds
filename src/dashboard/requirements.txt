@@ -1,0 +1,24 @@
+# ==============================================================================
+# EcoCampus UPTC - Dependencias
+# Hackathon IAMinds 2026 - Equipo NovaIA
+# ==============================================================================
+
+# Framework de Dashboard
+streamlit>=1.31.0
+
+# Visualizacion
+plotly>=5.18.0
+
+# Procesamiento de Datos
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Machine Learning
+xgboost>=2.0.0
+scikit-learn>=1.4.0
+
+# Anthropic Claude API
+anthropic>=0.40.0
+
+# Variables de Entorno
+python-dotenv>=1.0.0

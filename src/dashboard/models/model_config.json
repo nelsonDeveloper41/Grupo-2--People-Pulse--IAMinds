@@ -1,0 +1,47 @@
+{
+  "features": [
+    "hora_sin",
+    "hora_cos",
+    "es_fin_semana",
+    "es_festivo",
+    "semana_parciales",
+    "semana_final",
+    "periodo_academico_semestre1",
+    "periodo_academico_semestre2",
+    "periodo_academico_vacaciones",
+    "temperatura_exterior",
+    "ocupacion_pct",
+    "co2"
+  ],
+  "targets": [
+    "energia_total_kwh",
+    "energia_comedor_kwh",
+    "energia_salones_kwh",
+    "energia_laboratorios_kwh",
+    "energia_auditorios_kwh",
+    "energia_oficinas_kwh",
+    "potencia_total_kw",
+    "agua_litros",
+    "co2_kg"
+  ],
+  "sedes": [
+    "UPTC_TUN",
+    "UPTC_SOG",
+    "UPTC_DUI",
+    "UPTC_CHI"
+  ],
+  "r2_scores": {
+    "energia_total_kwh": 0.95,
+    "energia_comedor_kwh": 0.95,
+    "energia_salones_kwh": 0.93,
+    "energia_laboratorios_kwh": 0.85,
+    "energia_auditorios_kwh": 0.06,
+    "energia_oficinas_kwh": 0.06,
+    "potencia_total_kw": 0.97,
+    "agua_litros": 0.8,
+    "co2_kg": 0.9
+  },
+  "is_dummy": true,
+  "version": "1.0",
+  "author": "Dummy generator - Reemplazar con modelos de Sebastián"
+}

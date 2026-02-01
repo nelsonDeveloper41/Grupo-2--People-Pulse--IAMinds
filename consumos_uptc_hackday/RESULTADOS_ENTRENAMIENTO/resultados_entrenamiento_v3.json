@@ -1,0 +1,2350 @@
+{
+  "fecha_entrenamiento": "2026-01-31T14:10:51.496491",
+  "version": "v3_magic_features_anti_overfit",
+  "configuracion": {
+    "usar_busqueda_hp": true,
+    "n_iter_search": 15,
+    "n_splits_cv": 5,
+    "overfitting_threshold": 0.1
+  },
+  "variables_magicas": [
+    "temp_hace_1h",
+    "temp_hace_3h",
+    "ocupacion_hace_1h",
+    "ocupacion_hace_3h",
+    "cambio_temp_1h",
+    "cambio_temp_3h",
+    "cambio_ocupacion_1h",
+    "{target}_velocidad_1h"
+  ],
+  "sedes": {
+    "UPTC_TUN": {
+      "archivo": "train_ready_UPTC_TUN.csv",
+      "n_registros": 68837,
+      "modelos": {
+        "energia_total_kwh": {
+          "metricas_train": {
+            "RMSE": 0.18414461511062047,
+            "MAE": 0.07001883382658584,
+            "R2": 0.9969027117793166,
+            "MAPE": 2.9495824367366748
+          },
+          "metricas_test": {
+            "RMSE": 0.6212370998880011,
+            "MAE": 0.12143722445609847,
+            "R2": 0.9679552503870702,
+            "MAPE": 2.3296937479108935
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.028947461392246354,
+            "message": "✅ OK (gap=0.029)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.4994831085205078
+            },
+            {
+              "feature": "energia_total_kwh_velocidad_1h",
+              "importance": 0.19630135595798492
+            },
+            {
+              "feature": "energia_total_kwh_lag_1h",
+              "importance": 0.08315513283014297
+            },
+            {
+              "feature": "energia_total_kwh_lag_168h",
+              "importance": 0.06507168710231781
+            },
+            {
+              "feature": "energia_total_kwh_lag_24h",
+              "importance": 0.027351779863238335
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.018748456612229347
+            },
+            {
+              "feature": "energia_total_kwh_rolling_mean_24h",
+              "importance": 0.015120459720492363
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_total_kwh.pkl"
+        },
+        "energia_comedor_kwh": {
+          "metricas_train": {
+            "RMSE": 0.012017675078278714,
+            "MAE": 0.0053704419256728544,
+            "R2": 0.9976817259960041,
+            "MAPE": 4.149674876864791
+          },
+          "metricas_test": {
+            "RMSE": 0.022631632384331912,
+            "MAE": 0.00926289108270138,
+            "R2": 0.9938968917201192,
+            "MAPE": 2.6017200319498826
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0037848342758849407,
+            "message": "✅ OK (gap=0.004)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_comedor_kwh_lag_24h",
+              "importance": 0.27966076135635376
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.11836414784193039
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.10720830410718918
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.0886508971452713
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_1h",
+              "importance": 0.07206977158784866
+            },
+            {
+              "feature": "energia_comedor_kwh_velocidad_1h",
+              "importance": 0.053869299590587616
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_168h",
+              "importance": 0.051122695207595825
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_comedor_kwh.pkl"
+        },
+        "energia_salones_kwh": {
+          "metricas_train": {
+            "RMSE": 0.011837595692272539,
+            "MAE": 0.004035307560116053,
+            "R2": 0.9997320771217346,
+            "MAPE": 1.1161243449282328
+          },
+          "metricas_test": {
+            "RMSE": 0.023021136374208696,
+            "MAE": 0.005812359973788261,
+            "R2": 0.9994001984596252,
+            "MAPE": 1.082701443568668
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.000331878662109375,
+            "message": "✅ OK (gap=0.000)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.4837494492530823
+            },
+            {
+              "feature": "energia_salones_kwh_velocidad_1h",
+              "importance": 0.14596447348594666
+            },
+            {
+              "feature": "energia_salones_kwh_lag_168h",
+              "importance": 0.11084514111280441
+            },
+            {
+              "feature": "energia_salones_kwh_lag_1h",
+              "importance": 0.10331124067306519
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.03744165971875191
+            },
+            {
+              "feature": "energia_salones_kwh_lag_24h",
+              "importance": 0.034173909574747086
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.020491600036621094
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_salones_kwh.pkl"
+        },
+        "energia_laboratorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.01925476193624345,
+            "MAE": 0.012279902350349998,
+            "R2": 0.9996300373872993,
+            "MAPE": 0.9987781370325571
+          },
+          "metricas_test": {
+            "RMSE": 0.17035044144923348,
+            "MAE": 0.03316746338295035,
+            "R2": 0.9705770865914163,
+            "MAPE": 1.2706654150951708
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.029052950795882992,
+            "message": "✅ OK (gap=0.029)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.32945600152015686
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_1h",
+              "importance": 0.1439535915851593
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.1005135029554367
+            },
+            {
+              "feature": "energia_laboratorios_kwh_velocidad_1h",
+              "importance": 0.08532262593507767
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_168h",
+              "importance": 0.0757259726524353
+            },
+            {
+              "feature": "energia_laboratorios_kwh_rolling_mean_24h",
+              "importance": 0.06996949017047882
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.05145179107785225
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_laboratorios_kwh.pkl"
+        },
+        "energia_auditorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.0017141015615061352,
+            "MAE": 0.0008090913831962822,
+            "R2": 0.9998382293890976,
+            "MAPE": 2.5382456157606046
+          },
+          "metricas_test": {
+            "RMSE": 0.016269301563102086,
+            "MAE": 0.0038813794398410077,
+            "R2": 0.9928475565781353,
+            "MAPE": 2.7175163633941115
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.006990672810962328,
+            "message": "✅ OK (gap=0.007)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "energia_auditorios_kwh_velocidad_1h",
+              "importance": 0.8266029357910156
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_1h",
+              "importance": 0.04293978586792946
+            },
+            {
+              "feature": "energia_auditorios_kwh_rolling_mean_24h",
+              "importance": 0.033255789428949356
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.02456357516348362
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.011203102767467499
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_24h",
+              "importance": 0.00981251522898674
+            },
+            {
+              "feature": "periodo_academico_semestre_1",
+              "importance": 0.008659186773002148
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_auditorios_kwh.pkl"
+        },
+        "energia_oficinas_kwh": {
+          "metricas_train": {
+            "RMSE": 0.016472205735206445,
+            "MAE": 0.008596740662098864,
+            "R2": 0.9996113200650509,
+            "MAPE": 1.6786931364024944
+          },
+          "metricas_test": {
+            "RMSE": 0.046578638960478515,
+            "MAE": 0.01913438248993685,
+            "R2": 0.9978435395831083,
+            "MAPE": 1.5665893648393183
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0017677804819425935,
+            "message": "✅ OK (gap=0.002)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0.1,
+            "n_estimators": 500,
+            "min_child_weight": 3,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_oficinas_kwh_lag_1h",
+              "importance": 0.3876442015171051
+            },
+            {
+              "feature": "energia_oficinas_kwh_lag_168h",
+              "importance": 0.19788438081741333
+            },
+            {
+              "feature": "energia_oficinas_kwh_velocidad_1h",
+              "importance": 0.10486561805009842
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.06843166798353195
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.06640084832906723
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.057265736162662506
+            },
+            {
+              "feature": "periodo_academico_vacaciones_mitad",
+              "importance": 0.0337052047252655
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_energia_oficinas_kwh.pkl"
+        },
+        "potencia_total_kw": {
+          "metricas_train": {
+            "RMSE": 0.0690587380901691,
+            "MAE": 0.0435486958701107,
+            "R2": 0.9996431226646649,
+            "MAPE": 1.4040586575904992
+          },
+          "metricas_test": {
+            "RMSE": 0.26622130253006465,
+            "MAE": 0.11558175249635799,
+            "R2": 0.9958008863084752,
+            "MAPE": 1.6443863733422523
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0038422363561897432,
+            "message": "✅ OK (gap=0.004)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.46637073159217834
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.11980864405632019
+            },
+            {
+              "feature": "potencia_total_kw_lag_1h",
+              "importance": 0.11213792860507965
+            },
+            {
+              "feature": "potencia_total_kw_lag_168h",
+              "importance": 0.08086102455854416
+            },
+            {
+              "feature": "potencia_total_kw_velocidad_1h",
+              "importance": 0.057306259870529175
+            },
+            {
+              "feature": "potencia_total_kw_rolling_mean_24h",
+              "importance": 0.030793653801083565
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.027440430596470833
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_potencia_total_kw.pkl"
+        },
+        "agua_litros": {
+          "metricas_train": {
+            "RMSE": 46.34035176523673,
+            "MAE": 23.228901207797936,
+            "R2": 0.9994923640823614,
+            "MAPE": 1.9860268129240168
+          },
+          "metricas_test": {
+            "RMSE": 408.7814228708072,
+            "MAE": 61.24646039245255,
+            "R2": 0.9569887633338897,
+            "MAPE": 1.6428571677572108
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.042503600748471704,
+            "message": "✅ OK (gap=0.043)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0.1,
+            "n_estimators": 500,
+            "min_child_weight": 3,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "agua_litros_lag_1h",
+              "importance": 0.2746003270149231
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.2091083824634552
+            },
+            {
+              "feature": "agua_litros_velocidad_1h",
+              "importance": 0.19501736760139465
+            },
+            {
+              "feature": "agua_litros_rolling_mean_24h",
+              "importance": 0.055389948189258575
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.042611297219991684
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.042347416281700134
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.032945796847343445
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_agua_litros.pkl"
+        },
+        "co2_kg": {
+          "metricas_train": {
+            "RMSE": 0.01312039200925687,
+            "MAE": 0.007798636087427543,
+            "R2": 0.9996120291825742,
+            "MAPE": 1.588115147861635
+          },
+          "metricas_test": {
+            "RMSE": 0.1719724358569696,
+            "MAE": 0.028202697797137757,
+            "R2": 0.9352747732339937,
+            "MAPE": 2.1877456200926
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.06433725594858053,
+            "message": "👀 Vigilar (gap=0.064)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.34054335951805115
+            },
+            {
+              "feature": "co2_kg_velocidad_1h",
+              "importance": 0.16722053289413452
+            },
+            {
+              "feature": "co2_kg_lag_1h",
+              "importance": 0.09768525511026382
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.0944773480296135
+            },
+            {
+              "feature": "co2_kg_lag_168h",
+              "importance": 0.07020797580480576
+            },
+            {
+              "feature": "co2_kg_rolling_mean_24h",
+              "importance": 0.02243398316204548
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.020471561700105667
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54935,
+          "n_samples_test": 13734,
+          "archivo_modelo": "xgb_v3_UPTC_TUN_co2_kg.pkl"
+        }
+      }
+    },
+    "UPTC_SOG": {
+      "archivo": "train_ready_UPTC_SOG.csv",
+      "n_registros": 68829,
+      "modelos": {
+        "energia_total_kwh": {
+          "metricas_train": {
+            "RMSE": 0.15822808957303666,
+            "MAE": 0.0866879969777228,
+            "R2": 0.9995017846722262,
+            "MAPE": 1.5136436005177663
+          },
+          "metricas_test": {
+            "RMSE": 1.8128850491894504,
+            "MAE": 0.2572408104624329,
+            "R2": 0.9532494160319867,
+            "MAPE": 1.7458395558466129
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.046252368640239516,
+            "message": "✅ OK (gap=0.046)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0.1,
+            "n_estimators": 500,
+            "min_child_weight": 3,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.5144614577293396
+            },
+            {
+              "feature": "energia_total_kwh_velocidad_1h",
+              "importance": 0.15871189534664154
+            },
+            {
+              "feature": "energia_total_kwh_lag_1h",
+              "importance": 0.07756693661212921
+            },
+            {
+              "feature": "energia_total_kwh_lag_168h",
+              "importance": 0.07084885239601135
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.02280166745185852
+            },
+            {
+              "feature": "energia_total_kwh_lag_24h",
+              "importance": 0.022039929404854774
+            },
+            {
+              "feature": "periodo_academico_vacaciones_mitad",
+              "importance": 0.018641941249370575
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_total_kwh.pkl"
+        },
+        "energia_comedor_kwh": {
+          "metricas_train": {
+            "RMSE": 0.007853964457057695,
+            "MAE": 0.004461946626026561,
+            "R2": 0.9996717727398986,
+            "MAPE": 1.8542204267556162
+          },
+          "metricas_test": {
+            "RMSE": 0.03934242721870891,
+            "MAE": 0.013503924721066658,
+            "R2": 0.9938162209639768,
+            "MAPE": 1.9524849779748803
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.005855551775921786,
+            "message": "✅ OK (gap=0.006)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "energia_comedor_kwh_lag_24h",
+              "importance": 0.2417239099740982
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.13902749121189117
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_168h",
+              "importance": 0.11063866317272186
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_1h",
+              "importance": 0.10275782644748688
+            },
+            {
+              "feature": "energia_comedor_kwh_velocidad_1h",
+              "importance": 0.09635597467422485
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.08036601543426514
+            },
+            {
+              "feature": "dia_sem_sin",
+              "importance": 0.0440833605825901
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_comedor_kwh.pkl"
+        },
+        "energia_salones_kwh": {
+          "metricas_train": {
+            "RMSE": 0.019683576922202257,
+            "MAE": 0.007914956659078598,
+            "R2": 0.9998733997344971,
+            "MAPE": 1.2428374670552362
+          },
+          "metricas_test": {
+            "RMSE": 0.0694016695739702,
+            "MAE": 0.021284615620970726,
+            "R2": 0.9990147948265076,
+            "MAPE": 2.281427799190495
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.000858604907989502,
+            "message": "✅ OK (gap=0.001)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.3570748567581177
+            },
+            {
+              "feature": "energia_salones_kwh_lag_1h",
+              "importance": 0.1269797384738922
+            },
+            {
+              "feature": "energia_salones_kwh_velocidad_1h",
+              "importance": 0.11783774197101593
+            },
+            {
+              "feature": "energia_salones_kwh_lag_168h",
+              "importance": 0.10223230719566345
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.08911886811256409
+            },
+            {
+              "feature": "energia_salones_kwh_lag_24h",
+              "importance": 0.06284163892269135
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.038061827421188354
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_salones_kwh.pkl"
+        },
+        "energia_laboratorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.04663306942143004,
+            "MAE": 0.030303404255716596,
+            "R2": 0.9996040518667486,
+            "MAPE": 0.9486069895580571
+          },
+          "metricas_test": {
+            "RMSE": 0.3538199815907299,
+            "MAE": 0.08152660583015493,
+            "R2": 0.9774330599188739,
+            "MAPE": 1.2990608293319224
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.022170991947874752,
+            "message": "✅ OK (gap=0.022)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.2979111671447754
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_1h",
+              "importance": 0.15271876752376556
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_168h",
+              "importance": 0.1253807246685028
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.10438770055770874
+            },
+            {
+              "feature": "energia_laboratorios_kwh_velocidad_1h",
+              "importance": 0.08568836003541946
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_24h",
+              "importance": 0.0825735405087471
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.04128928482532501
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_laboratorios_kwh.pkl"
+        },
+        "energia_auditorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.00874591310043704,
+            "MAE": 0.0025769643268317988,
+            "R2": 0.9983406886824506,
+            "MAPE": 3.4790601671053842
+          },
+          "metricas_test": {
+            "RMSE": 0.02036217656950605,
+            "MAE": 0.005269403511676694,
+            "R2": 0.9953940307328005,
+            "MAPE": 2.609428234002998
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0029466579496501,
+            "message": "✅ OK (gap=0.003)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_auditorios_kwh_velocidad_1h",
+              "importance": 0.807684063911438
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_1h",
+              "importance": 0.0517926886677742
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.039793290197849274
+            },
+            {
+              "feature": "energia_auditorios_kwh_rolling_mean_24h",
+              "importance": 0.02277006022632122
+            },
+            {
+              "feature": "periodo_academico_semestre_1",
+              "importance": 0.018136195838451385
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_24h",
+              "importance": 0.01417325995862484
+            },
+            {
+              "feature": "periodo_academico_semestre_2",
+              "importance": 0.009688762947916985
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_auditorios_kwh.pkl"
+        },
+        "energia_oficinas_kwh": {
+          "metricas_train": {
+            "RMSE": 0.03139309859376334,
+            "MAE": 0.01689547453028292,
+            "R2": 0.9996219527215362,
+            "MAPE": 1.675547999867376
+          },
+          "metricas_test": {
+            "RMSE": 0.08879110007849782,
+            "MAE": 0.03726069978492324,
+            "R2": 0.9978967308861285,
+            "MAPE": 1.6527944660904177
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0017252218354076865,
+            "message": "✅ OK (gap=0.002)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0.1,
+            "n_estimators": 500,
+            "min_child_weight": 3,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_oficinas_kwh_lag_1h",
+              "importance": 0.39412999153137207
+            },
+            {
+              "feature": "energia_oficinas_kwh_lag_168h",
+              "importance": 0.1914740651845932
+            },
+            {
+              "feature": "energia_oficinas_kwh_velocidad_1h",
+              "importance": 0.11077306419610977
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.10769713670015335
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.05082838609814644
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.03824526071548462
+            },
+            {
+              "feature": "periodo_academico_vacaciones_mitad",
+              "importance": 0.03720612823963165
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_energia_oficinas_kwh.pkl"
+        },
+        "potencia_total_kw": {
+          "metricas_train": {
+            "RMSE": 0.16974462573807583,
+            "MAE": 0.0993567113794914,
+            "R2": 0.9995304499912758,
+            "MAPE": 1.3513212317256136
+          },
+          "metricas_test": {
+            "RMSE": 0.5598153565233057,
+            "MAE": 0.22930192019060433,
+            "R2": 0.9958836695266324,
+            "MAPE": 1.4730258446793485
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0036467804646433954,
+            "message": "✅ OK (gap=0.004)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0.1,
+            "n_estimators": 500,
+            "min_child_weight": 3,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.67386394739151
+            },
+            {
+              "feature": "potencia_total_kw_lag_168h",
+              "importance": 0.11861494183540344
+            },
+            {
+              "feature": "potencia_total_kw_lag_1h",
+              "importance": 0.06714454293251038
+            },
+            {
+              "feature": "potencia_total_kw_velocidad_1h",
+              "importance": 0.03234146907925606
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.03221660479903221
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.014499531127512455
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.01233182568103075
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_potencia_total_kw.pkl"
+        },
+        "agua_litros": {
+          "metricas_train": {
+            "RMSE": 17.56690101169027,
+            "MAE": 5.780188409759035,
+            "R2": 0.9966463949965295,
+            "MAPE": 3.6498639791432455
+          },
+          "metricas_test": {
+            "RMSE": 97.69269237266634,
+            "MAE": 14.085123057003925,
+            "R2": 0.9509442276378502,
+            "MAPE": 2.9943127211156204
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.04570216735867927,
+            "message": "✅ OK (gap=0.046)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 1,
+            "n_estimators": 300,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "agua_litros_lag_1h",
+              "importance": 0.2462867796421051
+            },
+            {
+              "feature": "agua_litros_velocidad_1h",
+              "importance": 0.11287569999694824
+            },
+            {
+              "feature": "periodo_academico_semestre_1",
+              "importance": 0.1055641770362854
+            },
+            {
+              "feature": "agua_litros_rolling_mean_24h",
+              "importance": 0.09200970083475113
+            },
+            {
+              "feature": "agua_litros_lag_168h",
+              "importance": 0.08545459061861038
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.07112084329128265
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.05867239087820053
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_agua_litros.pkl"
+        },
+        "co2_kg": {
+          "metricas_train": {
+            "RMSE": 0.027274761097048357,
+            "MAE": 0.016722137376220712,
+            "R2": 0.9996303629621491,
+            "MAPE": 1.4805656717528437
+          },
+          "metricas_test": {
+            "RMSE": 0.4158587612682086,
+            "MAE": 0.059939695635083445,
+            "R2": 0.9379324005269485,
+            "MAPE": 1.9865572548543846
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.06169796243520065,
+            "message": "👀 Vigilar (gap=0.062)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.3365163207054138
+            },
+            {
+              "feature": "co2_kg_velocidad_1h",
+              "importance": 0.15720175206661224
+            },
+            {
+              "feature": "co2_kg_lag_1h",
+              "importance": 0.10804502665996552
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.10108017176389694
+            },
+            {
+              "feature": "co2_kg_lag_168h",
+              "importance": 0.07030708342790604
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.037378787994384766
+            },
+            {
+              "feature": "co2_kg_lag_24h",
+              "importance": 0.035614531487226486
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54928,
+          "n_samples_test": 13733,
+          "archivo_modelo": "xgb_v3_UPTC_SOG_co2_kg.pkl"
+        }
+      }
+    },
+    "UPTC_DUI": {
+      "archivo": "train_ready_UPTC_DUI.csv",
+      "n_registros": 68862,
+      "modelos": {
+        "energia_total_kwh": {
+          "metricas_train": {
+            "RMSE": 0.12333628196664635,
+            "MAE": 0.07333009638543857,
+            "R2": 0.999692351515682,
+            "MAPE": 1.2447840391990452
+          },
+          "metricas_test": {
+            "RMSE": 1.440634860222818,
+            "MAE": 0.21501958912269847,
+            "R2": 0.9683308094925871,
+            "MAPE": 1.5656286571131204
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.031361542023094935,
+            "message": "✅ OK (gap=0.031)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.349758118391037
+            },
+            {
+              "feature": "energia_total_kwh_velocidad_1h",
+              "importance": 0.18512678146362305
+            },
+            {
+              "feature": "energia_total_kwh_lag_1h",
+              "importance": 0.10174193233251572
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.09647688269615173
+            },
+            {
+              "feature": "energia_total_kwh_lag_168h",
+              "importance": 0.06802187860012054
+            },
+            {
+              "feature": "energia_total_kwh_lag_24h",
+              "importance": 0.03431692346930504
+            },
+            {
+              "feature": "dia_sem_cos",
+              "importance": 0.020273864269256592
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_total_kwh.pkl"
+        },
+        "energia_comedor_kwh": {
+          "metricas_train": {
+            "RMSE": 0.008167670534499941,
+            "MAE": 0.004777046947652985,
+            "R2": 0.9996548899806555,
+            "MAPE": 1.8410221656426515
+          },
+          "metricas_test": {
+            "RMSE": 0.033005170807815336,
+            "MAE": 0.011886621497607804,
+            "R2": 0.9956968640129044,
+            "MAPE": 1.7776075613648166
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.003958025967751189,
+            "message": "✅ OK (gap=0.004)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "energia_comedor_kwh_lag_24h",
+              "importance": 0.22258637845516205
+            },
+            {
+              "feature": "energia_comedor_kwh_velocidad_1h",
+              "importance": 0.14765852689743042
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_1h",
+              "importance": 0.11131669580936432
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.10835406184196472
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.09920785576105118
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.06933581829071045
+            },
+            {
+              "feature": "dia_sem_sin",
+              "importance": 0.05204375460743904
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_comedor_kwh.pkl"
+        },
+        "energia_salones_kwh": {
+          "metricas_train": {
+            "RMSE": 0.02290312215948432,
+            "MAE": 0.009656351059675217,
+            "R2": 0.999859094619751,
+            "MAPE": 1.3477538077378841
+          },
+          "metricas_test": {
+            "RMSE": 0.059812212921542846,
+            "MAE": 0.020730242133140564,
+            "R2": 0.9993813633918762,
+            "MAPE": 2.0242871199265764
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.00047773122787475586,
+            "message": "✅ OK (gap=0.000)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.3696206212043762
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.1278330534696579
+            },
+            {
+              "feature": "energia_salones_kwh_lag_1h",
+              "importance": 0.10777579993009567
+            },
+            {
+              "feature": "energia_salones_kwh_velocidad_1h",
+              "importance": 0.0915655568242073
+            },
+            {
+              "feature": "energia_salones_kwh_lag_168h",
+              "importance": 0.06600721925497055
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.06485127657651901
+            },
+            {
+              "feature": "energia_salones_kwh_lag_24h",
+              "importance": 0.05121098458766937
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_salones_kwh.pkl"
+        },
+        "energia_laboratorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.13333120561934367,
+            "MAE": 0.061429534691311335,
+            "R2": 0.9962767685354315,
+            "MAPE": 1.9176859432218567
+          },
+          "metricas_test": {
+            "RMSE": 0.3501378412771942,
+            "MAE": 0.08439248006264548,
+            "R2": 0.9749714960832843,
+            "MAPE": 1.5617530474920194
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.021305272452147195,
+            "message": "✅ OK (gap=0.021)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.483497679233551
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_1h",
+              "importance": 0.10137559473514557
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_168h",
+              "importance": 0.09035039693117142
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_24h",
+              "importance": 0.0737113207578659
+            },
+            {
+              "feature": "energia_laboratorios_kwh_velocidad_1h",
+              "importance": 0.06405791640281677
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.044667698442935944
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.03271595761179924
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_laboratorios_kwh.pkl"
+        },
+        "energia_auditorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.010287539181460196,
+            "MAE": 0.0030767308762670153,
+            "R2": 0.9983039466247631,
+            "MAPE": 3.227209479482509
+          },
+          "metricas_test": {
+            "RMSE": 0.019997229442018347,
+            "MAE": 0.005457031103170725,
+            "R2": 0.996725166226459,
+            "MAPE": 2.2088266989825955
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0015787803983040583,
+            "message": "✅ OK (gap=0.002)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_auditorios_kwh_velocidad_1h",
+              "importance": 0.8168702125549316
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_1h",
+              "importance": 0.06238751485943794
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.027204647660255432
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.018030254170298576
+            },
+            {
+              "feature": "energia_auditorios_kwh_rolling_mean_24h",
+              "importance": 0.01710512489080429
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_24h",
+              "importance": 0.01613600365817547
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_168h",
+              "importance": 0.0068756891414523125
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_auditorios_kwh.pkl"
+        },
+        "energia_oficinas_kwh": {
+          "metricas_train": {
+            "RMSE": 0.05406955792214092,
+            "MAE": 0.029418578802075705,
+            "R2": 0.9989038883860196,
+            "MAPE": 2.7869747893283026
+          },
+          "metricas_test": {
+            "RMSE": 0.080694306440735,
+            "MAE": 0.039426629704444785,
+            "R2": 0.9982818824825657,
+            "MAPE": 2.0562969966792375
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0006220059034539593,
+            "message": "✅ OK (gap=0.001)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_oficinas_kwh_lag_1h",
+              "importance": 0.38147202134132385
+            },
+            {
+              "feature": "energia_oficinas_kwh_lag_168h",
+              "importance": 0.18011146783828735
+            },
+            {
+              "feature": "energia_oficinas_kwh_velocidad_1h",
+              "importance": 0.10091685503721237
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.08901972323656082
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.0824710875749588
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.0632171481847763
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.02670450508594513
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_energia_oficinas_kwh.pkl"
+        },
+        "potencia_total_kw": {
+          "metricas_train": {
+            "RMSE": 0.1602147313565343,
+            "MAE": 0.10230939731745407,
+            "R2": 0.99958319429229,
+            "MAPE": 1.328465192241597
+          },
+          "metricas_test": {
+            "RMSE": 0.49575119166441545,
+            "MAE": 0.2296164819854985,
+            "R2": 0.996790028247837,
+            "MAPE": 1.60689402503852
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0027931660444530104,
+            "message": "✅ OK (gap=0.003)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.46273574233055115
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.11636847257614136
+            },
+            {
+              "feature": "potencia_total_kw_lag_1h",
+              "importance": 0.11318103969097137
+            },
+            {
+              "feature": "potencia_total_kw_lag_168h",
+              "importance": 0.08415588736534119
+            },
+            {
+              "feature": "potencia_total_kw_velocidad_1h",
+              "importance": 0.06262993067502975
+            },
+            {
+              "feature": "potencia_total_kw_lag_24h",
+              "importance": 0.03325486183166504
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.02396824024617672
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_potencia_total_kw.pkl"
+        },
+        "agua_litros": {
+          "metricas_train": {
+            "RMSE": 12.543917258142255,
+            "MAE": 4.374298433910126,
+            "R2": 0.9968501460234884,
+            "MAPE": 3.5761239963336946
+          },
+          "metricas_test": {
+            "RMSE": 39.25216432243595,
+            "MAE": 7.050152748285765,
+            "R2": 0.9624953177897195,
+            "MAPE": 2.11669730887553
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.0343548282337689,
+            "message": "✅ OK (gap=0.034)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "agua_litros_lag_1h",
+              "importance": 0.2745032012462616
+            },
+            {
+              "feature": "agua_litros_velocidad_1h",
+              "importance": 0.1597265750169754
+            },
+            {
+              "feature": "agua_litros_lag_168h",
+              "importance": 0.13791118562221527
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.10532190650701523
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.10463939607143402
+            },
+            {
+              "feature": "agua_litros_rolling_mean_24h",
+              "importance": 0.04065582901239395
+            },
+            {
+              "feature": "agua_litros_lag_24h",
+              "importance": 0.038825102150440216
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_agua_litros.pkl"
+        },
+        "co2_kg": {
+          "metricas_train": {
+            "RMSE": 0.27505476023233266,
+            "MAE": 0.07879986796888494,
+            "R2": 0.9618837092590559,
+            "MAPE": 6.711013963031961
+          },
+          "metricas_test": {
+            "RMSE": 0.43321857412552855,
+            "MAE": 0.10946357005662578,
+            "R2": 0.9290568635440587,
+            "MAPE": 4.969117268196323
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.032826845714997166,
+            "message": "✅ OK (gap=0.033)"
+          },
+          "best_params": {
+            "subsample": 0.7,
+            "reg_lambda": 1,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 7,
+            "max_depth": 3,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.34352222084999084
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.10992217808961868
+            },
+            {
+              "feature": "co2_kg_velocidad_1h",
+              "importance": 0.10262405127286911
+            },
+            {
+              "feature": "co2_kg_lag_168h",
+              "importance": 0.0899120420217514
+            },
+            {
+              "feature": "co2_kg_lag_1h",
+              "importance": 0.07580123096704483
+            },
+            {
+              "feature": "co2_kg_lag_24h",
+              "importance": 0.06842060387134552
+            },
+            {
+              "feature": "cambio_temp_1h",
+              "importance": 0.026530975475907326
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54955,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_DUI_co2_kg.pkl"
+        }
+      }
+    },
+    "UPTC_CHI": {
+      "archivo": "train_ready_UPTC_CHI.csv",
+      "n_registros": 68859,
+      "modelos": {
+        "energia_total_kwh": {
+          "metricas_train": {
+            "RMSE": 0.10001542720027455,
+            "MAE": 0.0455720795938285,
+            "R2": 0.9986609878865091,
+            "MAPE": 2.325086407160136
+          },
+          "metricas_test": {
+            "RMSE": 0.8838115237982969,
+            "MAE": 0.09824637677693586,
+            "R2": 0.9250070316952234,
+            "MAPE": 2.127460921442425
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.07365395619128579,
+            "message": "👀 Vigilar (gap=0.074)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 1,
+            "n_estimators": 300,
+            "min_child_weight": 5,
+            "max_depth": 7,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.4954512119293213
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.13374446332454681
+            },
+            {
+              "feature": "energia_total_kwh_velocidad_1h",
+              "importance": 0.08626613765954971
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.06688299030065536
+            },
+            {
+              "feature": "energia_total_kwh_lag_1h",
+              "importance": 0.05908360332250595
+            },
+            {
+              "feature": "energia_total_kwh_lag_168h",
+              "importance": 0.04149898514151573
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.0278537068516016
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_total_kwh.pkl"
+        },
+        "energia_comedor_kwh": {
+          "metricas_train": {
+            "RMSE": 0.0025039755704434146,
+            "MAE": 0.0014640962233049247,
+            "R2": 0.9996809143289932,
+            "MAPE": 1.7187973919100028
+          },
+          "metricas_test": {
+            "RMSE": 0.011697594488985982,
+            "MAE": 0.003938855619957667,
+            "R2": 0.9948725323389899,
+            "MAPE": 1.7469812744547852
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.00480838199000333,
+            "message": "✅ OK (gap=0.005)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "energia_comedor_kwh_lag_24h",
+              "importance": 0.21515066921710968
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.19327358901500702
+            },
+            {
+              "feature": "energia_comedor_kwh_velocidad_1h",
+              "importance": 0.12999624013900757
+            },
+            {
+              "feature": "energia_comedor_kwh_lag_1h",
+              "importance": 0.11277182400226593
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.07388725876808167
+            },
+            {
+              "feature": "dia_sem_sin",
+              "importance": 0.042937684804201126
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.04124806076288223
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_comedor_kwh.pkl"
+        },
+        "energia_salones_kwh": {
+          "metricas_train": {
+            "RMSE": 0.0201606118914897,
+            "MAE": 0.00654241070151329,
+            "R2": 0.9994871020317078,
+            "MAPE": 1.4439941344839153
+          },
+          "metricas_test": {
+            "RMSE": 0.026332526693293803,
+            "MAE": 0.008367050439119339,
+            "R2": 0.9994551539421082,
+            "MAPE": 1.3605191744200396
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 3.1948089599609375e-05,
+            "message": "✅ OK (gap=0.000)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.47998058795928955
+            },
+            {
+              "feature": "energia_salones_kwh_lag_168h",
+              "importance": 0.131402388215065
+            },
+            {
+              "feature": "energia_salones_kwh_velocidad_1h",
+              "importance": 0.08750970661640167
+            },
+            {
+              "feature": "energia_salones_kwh_lag_1h",
+              "importance": 0.08567025512456894
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.08107700943946838
+            },
+            {
+              "feature": "energia_salones_kwh_lag_24h",
+              "importance": 0.0317150242626667
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.02581440471112728
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_salones_kwh.pkl"
+        },
+        "energia_laboratorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.010627403058121241,
+            "MAE": 0.006706780372173267,
+            "R2": 0.9995279907340263,
+            "MAPE": 1.047149519870007
+          },
+          "metricas_test": {
+            "RMSE": 0.047919046498343484,
+            "MAE": 0.014330067439516416,
+            "R2": 0.9915803839480051,
+            "MAPE": 1.2880733067280914
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.007947606786021244,
+            "message": "✅ OK (gap=0.008)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.3773108422756195
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.17350320518016815
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_1h",
+              "importance": 0.07507015019655228
+            },
+            {
+              "feature": "energia_laboratorios_kwh_velocidad_1h",
+              "importance": 0.0747336819767952
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_168h",
+              "importance": 0.06952854245901108
+            },
+            {
+              "feature": "energia_laboratorios_kwh_lag_24h",
+              "importance": 0.049132004380226135
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.03406954184174538
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_laboratorios_kwh.pkl"
+        },
+        "energia_auditorios_kwh": {
+          "metricas_train": {
+            "RMSE": 0.009388030935362847,
+            "MAE": 0.00299054256487778,
+            "R2": 0.995767391188105,
+            "MAPE": 6.247328648754489
+          },
+          "metricas_test": {
+            "RMSE": 0.013373299380357737,
+            "MAE": 0.004321491379713068,
+            "R2": 0.9954763817477419,
+            "MAPE": 3.989922540873984
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.00029100944036308807,
+            "message": "✅ OK (gap=0.000)"
+          },
+          "best_params": {
+            "subsample": 0.7,
+            "reg_lambda": 1,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 7,
+            "max_depth": 3,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "energia_auditorios_kwh_velocidad_1h",
+              "importance": 0.7051037549972534
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.05479299649596214
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_1h",
+              "importance": 0.05173886939883232
+            },
+            {
+              "feature": "energia_auditorios_kwh_rolling_mean_24h",
+              "importance": 0.04528885707259178
+            },
+            {
+              "feature": "energia_auditorios_kwh_lag_24h",
+              "importance": 0.03333282843232155
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.025690533220767975
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.017506089061498642
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_auditorios_kwh.pkl"
+        },
+        "energia_oficinas_kwh": {
+          "metricas_train": {
+            "RMSE": 0.02625338307735412,
+            "MAE": 0.0144411356356476,
+            "R2": 0.9988362561697416,
+            "MAPE": 2.84569035141218
+          },
+          "metricas_test": {
+            "RMSE": 0.040314369928061124,
+            "MAE": 0.020277884216499138,
+            "R2": 0.9980571722541836,
+            "MAPE": 2.20935190789608
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.000779083915558032,
+            "message": "✅ OK (gap=0.001)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 3,
+            "reg_alpha": 0.01,
+            "n_estimators": 500,
+            "min_child_weight": 5,
+            "max_depth": 5,
+            "learning_rate": 0.03,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "energia_oficinas_kwh_lag_1h",
+              "importance": 0.37305939197540283
+            },
+            {
+              "feature": "energia_oficinas_kwh_lag_168h",
+              "importance": 0.20164267718791962
+            },
+            {
+              "feature": "energia_oficinas_kwh_velocidad_1h",
+              "importance": 0.10182879865169525
+            },
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.07918018102645874
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.07321788370609283
+            },
+            {
+              "feature": "es_fin_semana",
+              "importance": 0.0636109709739685
+            },
+            {
+              "feature": "dia_sem_sin",
+              "importance": 0.03402797132730484
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_energia_oficinas_kwh.pkl"
+        },
+        "potencia_total_kw": {
+          "metricas_train": {
+            "RMSE": 0.06534060226706707,
+            "MAE": 0.03912538634745432,
+            "R2": 0.9995537357693486,
+            "MAPE": 1.5368480599626124
+          },
+          "metricas_test": {
+            "RMSE": 0.21169021397379503,
+            "MAE": 0.09516079765136988,
+            "R2": 0.9965854417699184,
+            "MAPE": 1.9191314935651873
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.002968293999430216,
+            "message": "✅ OK (gap=0.003)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 0,
+            "n_estimators": 1000,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.8
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.4366961121559143
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.25044330954551697
+            },
+            {
+              "feature": "potencia_total_kw_lag_1h",
+              "importance": 0.05478580296039581
+            },
+            {
+              "feature": "potencia_total_kw_lag_168h",
+              "importance": 0.0541706457734108
+            },
+            {
+              "feature": "potencia_total_kw_velocidad_1h",
+              "importance": 0.052039436995983124
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.038846831768751144
+            },
+            {
+              "feature": "potencia_total_kw_lag_24h",
+              "importance": 0.02484520711004734
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_potencia_total_kw.pkl"
+        },
+        "agua_litros": {
+          "metricas_train": {
+            "RMSE": 2.841287845898943,
+            "MAE": 1.0413762321646092,
+            "R2": 0.9968279136050058,
+            "MAPE": 3.5435227640984848
+          },
+          "metricas_test": {
+            "RMSE": 10.60497366467528,
+            "MAE": 2.0058046670557985,
+            "R2": 0.9660191388351149,
+            "MAPE": 2.4198765002579616
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.030808774769890857,
+            "message": "✅ OK (gap=0.031)"
+          },
+          "best_params": {
+            "subsample": 0.9,
+            "reg_lambda": 1,
+            "reg_alpha": 1,
+            "n_estimators": 300,
+            "min_child_weight": 3,
+            "max_depth": 5,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.39944085478782654
+            },
+            {
+              "feature": "agua_litros_lag_1h",
+              "importance": 0.13942082226276398
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.12960584461688995
+            },
+            {
+              "feature": "agua_litros_velocidad_1h",
+              "importance": 0.10426042973995209
+            },
+            {
+              "feature": "agua_litros_lag_168h",
+              "importance": 0.03742597997188568
+            },
+            {
+              "feature": "temperatura_exterior_c",
+              "importance": 0.034134525805711746
+            },
+            {
+              "feature": "agua_litros_rolling_mean_24h",
+              "importance": 0.03042418695986271
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_agua_litros.pkl"
+        },
+        "co2_kg": {
+          "metricas_train": {
+            "RMSE": 0.01752460771479915,
+            "MAE": 0.007871326112304624,
+            "R2": 0.9989661193372954,
+            "MAPE": 1.8947547400312705
+          },
+          "metricas_test": {
+            "RMSE": 0.18608170872133267,
+            "MAE": 0.022120184603060703,
+            "R2": 0.913768828672385,
+            "MAPE": 2.234778960854023
+          },
+          "overfitting": {
+            "detected": false,
+            "gap": 0.08519729066491044,
+            "message": "👀 Vigilar (gap=0.085)"
+          },
+          "best_params": {
+            "subsample": 0.7,
+            "reg_lambda": 1.5,
+            "reg_alpha": 1,
+            "n_estimators": 300,
+            "min_child_weight": 7,
+            "max_depth": 9,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.9
+          },
+          "top_features": [
+            {
+              "feature": "ocupacion_pct",
+              "importance": 0.4155980348587036
+            },
+            {
+              "feature": "ocupacion_hace_1h",
+              "importance": 0.17414946854114532
+            },
+            {
+              "feature": "co2_kg_velocidad_1h",
+              "importance": 0.13193456828594208
+            },
+            {
+              "feature": "co2_kg_lag_1h",
+              "importance": 0.0810941755771637
+            },
+            {
+              "feature": "hora_sin",
+              "importance": 0.055614519864320755
+            },
+            {
+              "feature": "co2_kg_lag_168h",
+              "importance": 0.03785043954849243
+            },
+            {
+              "feature": "hora_cos",
+              "importance": 0.01660747639834881
+            }
+          ],
+          "n_features": 26,
+          "n_magic_features": 8,
+          "n_samples_train": 54952,
+          "n_samples_test": 13739,
+          "archivo_modelo": "xgb_v3_UPTC_CHI_co2_kg.pkl"
+        }
+      }
+    }
+  }
+}

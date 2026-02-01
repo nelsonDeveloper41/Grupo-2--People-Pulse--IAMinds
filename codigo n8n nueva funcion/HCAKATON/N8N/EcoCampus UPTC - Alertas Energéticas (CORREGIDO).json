@@ -1,0 +1,125 @@
+{
+  "name": "EcoCampus UPTC - Alertas Energéticas (CORREGIDO)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ee3226db-2aba-4316-a3e1-b18bb9d1c042",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        1376,
+        320
+      ],
+      "id": "f6ee6dda-513b-411a-a5f2-f4e5f5c2ab67",
+      "name": "Webhook",
+      "webhookId": "bb779fca-2a9b-4bb0-96db-ddeec17156cc"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Eres un analista experto en eficiencia energética de la Universidad UPTC Tunja.\n\n{{ $json.body.mensaje }}\n\nANALIZA Y PROPORCIONA:\n\n📊 ANÁLISIS:\n- Identifica el problema principal con números específicos\n- Lista los sectores más afectados\n\n✅ ACCIONES RECOMENDADAS:\n1. Acción específica (con números si aplica)\n2. Acción específica (con números si aplica)\n3. Acción específica (con números si aplica)\n\n🎯 PRIORIDAD: [Crítica/Alta/Media]\n\nIMPORTANTE: Extrae y usa TODOS los números del mensaje. Sé específico y concreto.\n",
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        1568,
+        320
+      ],
+      "id": "ee83e0cf-dcef-431a-8e78-50a766f7747b",
+      "name": "LLM"
+    },
+    {
+      "parameters": {
+        "chatId": "555831571",
+        "text": "=📌 *Análisis EcoCampus UPTC*\\n\\n{{ $json.text }}\\n\\n_Timestamp: {{ now.toISO() }}_",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1888,
+        320
+      ],
+      "id": "99a3663c-fa58-4103-b3a1-45327467376a",
+      "name": "Telegram",
+      "webhookId": "e9b61c9b-1633-4ff2-9af4-da73381e631b",
+      "credentials": {
+        "telegramApi": {
+          "id": "WuNQegkRhkVcAodF",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "llama-3.3-70b-versatile",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1568,
+        480
+      ],
+      "id": "91f19b70-f167-438c-8da3-352ceb5c8415",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "umCEKTwuTwnQvbDn",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "LLM",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "LLM": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "LLM",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "9f878ddd-a2cd-4411-ac6e-0ceac1b35f5e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "1cef138c29c339f261a815c70343227488cc21cc93b757e85ab8c371f5fdfc98"
+  },
+  "id": "pQD69QLLHhNB5OPP",
+  "tags": []
+}

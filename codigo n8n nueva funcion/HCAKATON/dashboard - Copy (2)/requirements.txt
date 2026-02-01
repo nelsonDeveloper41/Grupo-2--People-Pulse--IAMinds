@@ -1,0 +1,27 @@
+# ==============================================================================
+# EcoCampus UPTC - Dependencias
+# Hackathon IAMinds 2026
+# ==============================================================================
+
+# Framework de Dashboard
+streamlit>=1.31.0
+
+# Visualización
+plotly>=5.18.0
+altair>=5.2.0
+
+# Procesamiento de Datos
+pandas>=2.1.0
+numpy>=1.26.0
+
+# Anthropic Claude API (Principal)
+anthropic>=0.40.0
+
+# Google Gemini API (Backup)
+google-generativeai>=0.3.0
+
+# Variables de Entorno
+python-dotenv>=1.0.0
+
+# Utilidades
+Pillow>=10.0.0
