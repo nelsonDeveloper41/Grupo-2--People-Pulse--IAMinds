@@ -5,7 +5,17 @@
 Desarrollado por **Equipo NovaIA** - Hackathon IAMinds 2026
 
 ---
+## 🎥 Video de presentación / Demo
 
+Debido a limitaciones de tamaño en el envío por correo, el video de presentación del proyecto se encuentra en el siguiente enlace de Google Drive:
+
+👉 https://drive.google.com/drive/folders/1y59TUa-GfZ3qIAIFHWlfddwzaEBdP4Vj
+
+El enlace contiene:
+- Video de presentación del proyecto
+- (Opcional) Material adicional de la demo
+
+---
 ## Descripcion
 
 EcoCampus UPTC es una plataforma que utiliza **Machine Learning (XGBoost)** para predecir el consumo energetico esperado y compararlo con datos reales de sensores, permitiendo:
